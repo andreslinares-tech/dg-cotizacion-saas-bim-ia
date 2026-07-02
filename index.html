@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DG — Cotización SaaS BIM+IA</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #14141c;
+    --surface-2: #1a1a24;
+    --violet: #7c3aed;
+    --violet-dim: #4c1d95;
+    --cyan: #22d3ee;
+    --amber: #fbbf24;
+    --emerald: #10b981;
+    --rose: #f43f5e;
+    --border: #ffffff12;
+  }
+  body { background: var(--bg); color: #e2e8f0; font-family: 'Inter', sans-serif; }
+  h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+  .mono { font-family: 'Geist Mono', monospace; }
+  .surface { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+  .surface-2 { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; }
+
+  .pill { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; font-family: 'Geist Mono', monospace; letter-spacing: .04em; }
+  .pill-violet { background: #7c3aed22; color: #a78bfa; border: 1px solid #7c3aed44; }
+  .pill-amber  { background: #fbbf2422; color: #fde68a; border: 1px solid #fbbf2444; }
+  .pill-emerald{ background: #10b98122; color: #6ee7b7; border: 1px solid #10b98144; }
+  .pill-rose   { background: #f43f5e22; color: #fda4af; border: 1px solid #f43f5e44; }
+  .pill-cyan   { background: #22d3ee22; color: #67e8f9; border: 1px solid #22d3ee44; }
+  .pill-zinc   { background: #ffffff10; color: #94a3b8; border: 1px solid #ffffff20; }
+
+  .glow-violet { box-shadow: 0 0 30px #7c3aed30; }
+  .glow-emerald { box-shadow: 0 0 30px #10b98130; }
+  .glow-amber { box-shadow: 0 0 30px #fbbf2430; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { font-family: 'Geist Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #64748b; border-bottom: 1px solid var(--border); padding: 10px 12px; text-align: left; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 14px; color: #cbd5e1; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr.subtotal td { background: #7c3aed10; font-weight: 600; color: #e2e8f0; }
+  tr.total-row td { background: #7c3aed22; font-weight: 700; color: #c4b5fd; font-size: 15px; }
+
+  .risk-card { border-left: 3px solid var(--amber); background: var(--surface-2); padding: 12px 16px; border-radius: 6px; }
+  .rec-box { border: 1px solid #10b98144; background: #10b98108; border-radius: 12px; }
+
+  .price-card-a { border: 1px solid #7c3aed44; background: #7c3aed08; border-radius: 16px; }
+  .price-card-b { border: 2px solid #10b98166; background: #10b98108; border-radius: 16px; }
+
+  .badge-rec { background: #10b981; color: #052e16; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; font-family: 'Geist Mono', monospace; }
+
+  .accent-bar { width: 3px; border-radius: 3px; flex-shrink: 0; }
+</style>
+</head>
+<body class="min-h-screen p-6 md:p-10">
+<div class="max-w-4xl mx-auto space-y-8">
+
+  <!-- Header -->
+  <div>
+    <div class="flex items-center gap-3 mb-2">
+      <span class="pill pill-violet">Design Modeling Academy</span>
+      <span class="pill pill-zinc">Análisis interno · Julio 2026</span>
+    </div>
+    <h1 class="text-3xl font-bold tracking-tight text-white">Cotización — SaaS BIM + IA</h1>
+    <p class="text-slate-400 mt-1">Basado en reunión del 01 Jul 2026 con Gabriel Pantoja · 65 min</p>
+  </div>
+
+  <!-- Resumen ejecutivo -->
+  <div class="surface p-6 space-y-4">
+    <h2 class="text-lg font-bold text-white">¿Qué pidió Gabriel?</h2>
+    <p class="text-slate-300 leading-relaxed">
+      Convertir el <strong class="text-white">GPT especializado en BIM</strong> que Gabriel construyó (cargado con su expertise de 10 años + 3 cursos completos) en una <strong class="text-white">app con branding propio de Design Modeling Academy</strong>. No más ChatGPT a la vista: una plataforma que sientan como una "solución inteligente" profesional para ingenieros y arquitectos BIM.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+      <div class="surface-2 p-4">
+        <p class="text-xs text-slate-500 mono mb-1">PÚBLICO OBJETIVO</p>
+        <p class="text-sm text-slate-200">Ingenieros y arquitectos usando Revit/BIM. 200 clientes proyectados a fin de año (41 actuales + 100 máster).</p>
+      </div>
+      <div class="surface-2 p-4">
+        <p class="text-xs text-slate-500 mono mb-1">DIFFERENCIADOR</p>
+        <p class="text-sm text-slate-200">El criterio experto de Gabriel cargado: normativas BIM, flujos de modelado, costos, decisiones de proyecto. No un GPT genérico.</p>
+      </div>
+      <div class="surface-2 p-4">
+        <p class="text-xs text-slate-500 mono mb-1">MODELO DE NEGOCIO</p>
+        <p class="text-sm text-slate-200">Suscripción mensual (mínimo igual al curso = USD 1,000 one-time o USD 99–200/mes). Módulos desbloqueables.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scope -->
+  <div class="surface p-6 space-y-5">
+    <h2 class="text-lg font-bold text-white">Scope definido en la reunión</h2>
+
+    <div class="space-y-3">
+      <div class="flex gap-3 items-start">
+        <div class="accent-bar bg-violet-500 mt-1" style="height:auto;min-height:60px;"></div>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-white text-sm">Phase 1 — MVP / Piloto</span>
+            <span class="pill pill-violet">Prioridad</span>
+          </div>
+          <ul class="text-sm text-slate-300 space-y-1 list-disc list-inside">
+            <li>Login + selector de rol: <strong class="text-white">Modelador / Coordinador / Gerente</strong></li>
+            <li>Knowledge base ingesta: 3 cursos de Gabriel (transcripts + archivos GPT)</li>
+            <li>Chat IA especializado con system prompt adaptado al rol elegido</li>
+            <li>Dashboard básico: materiales, costos, tiempos de proyecto</li>
+            <li>Branding DG (logo, colores, dominio)</li>
+            <li>Deploy Vercel + Supabase</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-3 items-start">
+        <div class="accent-bar bg-cyan-500 mt-1" style="height:auto;min-height:60px;"></div>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-white text-sm">Phase 2 — Producto Completo</span>
+            <span class="pill pill-cyan">Post-piloto</span>
+          </div>
+          <ul class="text-sm text-slate-300 space-y-1 list-disc list-inside">
+            <li>Sistema multi-módulo: skills desbloqueables (ej. Memoria BIM, Presupuestos, Normativas)</li>
+            <li>Integración Revit API / MCP (conectar directamente con el modelo)</li>
+            <li>Dashboard avanzado + exportación (reemplaza Power BI)</li>
+            <li>Stripe subscriptions + planes (por módulo o all-in-one)</li>
+            <li>Panel admin DG (ver usuarios, revenue, feedback)</li>
+            <li>Base multi-tenant (fundación para white-label futuro)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-3 items-start">
+        <div class="accent-bar bg-rose-500 mt-1" style="height:auto;min-height:30px;"></div>
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-semibold text-white text-sm">Fuera de scope (este desarrollo)</span>
+            <span class="pill pill-rose">No incluido</span>
+          </div>
+          <ul class="text-sm text-slate-300 space-y-1 list-disc list-inside">
+            <li>White-label para terceros (conversación para 2027)</li>
+            <li>Grabación/edición de cursos de Gabriel</li>
+            <li>Gestión de campañas Meta Ads para DG</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Curva de aprendizaje -->
+  <div class="surface p-6 space-y-4">
+    <h2 class="text-lg font-bold text-white">Curva de aprendizaje requerida</h2>
+    <p class="text-sm text-slate-400">Tecnologías nuevas o poco exploradas que hay que investigar antes de implementar.</p>
+    <div class="surface-2 overflow-x-auto rounded-lg">
+      <table>
+        <thead>
+          <tr>
+            <th>Área</th>
+            <th>Qué investigar</th>
+            <th class="text-right">Horas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="pill pill-amber">Revit API</span></td>
+            <td>Autodesk Forge / Revit REST API, autenticación, endpoints de modelo BIM</td>
+            <td class="text-right mono">10h</td>
+          </tr>
+          <tr>
+            <td><span class="pill pill-amber">MCP + Revit</span></td>
+            <td>Cómo exponer Revit como MCP tool para que Claude Code lo controle</td>
+            <td class="text-right mono">6h</td>
+          </tr>
+          <tr class="subtotal">
+            <td colspan="2"><strong>SUBTOTAL APRENDIZAJE</strong></td>
+            <td class="text-right mono">16h</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Desglose horas -->
+  <div class="surface p-6 space-y-4">
+    <h2 class="text-lg font-bold text-white">Desglose de horas de desarrollo</h2>
+    <p class="text-sm text-slate-400">Tarifa de referencia: <span class="mono text-violet-400">USD 40/h</span> · Full-stack AI development</p>
+
+    <div class="surface-2 overflow-x-auto rounded-lg">
+      <table>
+        <thead>
+          <tr>
+            <th>Módulo</th>
+            <th>Descripción</th>
+            <th class="text-right">Horas</th>
+            <th class="text-right">USD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Phase 1 -->
+          <tr>
+            <td colspan="4" class="py-2" style="background:#7c3aed12;"><span class="pill pill-violet">Phase 1 — MVP</span></td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Setup + Infra</td>
+            <td>Next.js + Supabase + Auth, estructura del proyecto, deploy Vercel</td>
+            <td class="text-right mono">8h</td>
+            <td class="text-right mono">$320</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Role Selector</td>
+            <td>Onboarding con selector de rol (Modelador/Coordinador/Gerente), UX</td>
+            <td class="text-right mono">8h</td>
+            <td class="text-right mono">$320</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Knowledge Base</td>
+            <td>Ingestión de los 3 cursos de Gabriel: chunking, embeddings, búsqueda semántica</td>
+            <td class="text-right mono">12h</td>
+            <td class="text-right mono">$480</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Chat IA</td>
+            <td>Interfaz de chat con Claude API, system prompts por rol, contexto BIM</td>
+            <td class="text-right mono">18h</td>
+            <td class="text-right mono">$720</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Dashboard básico</td>
+            <td>Visualización de KPIs de proyecto: materiales, costos, tiempos, avance</td>
+            <td class="text-right mono">14h</td>
+            <td class="text-right mono">$560</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Branding + QA</td>
+            <td>Logo DG, paleta, dominio, testing end-to-end, iteración con Gabriel</td>
+            <td class="text-right mono">14h</td>
+            <td class="text-right mono">$560</td>
+          </tr>
+          <tr class="subtotal">
+            <td colspan="2"><strong>SUBTOTAL PHASE 1</strong></td>
+            <td class="text-right mono">74h</td>
+            <td class="text-right mono">$2,960</td>
+          </tr>
+
+          <!-- Phase 2 -->
+          <tr>
+            <td colspan="4" class="py-2" style="background:#22d3ee12;"><span class="pill pill-cyan">Phase 2 — Full Product</span></td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Multi-módulo</td>
+            <td>Sistema de skills desbloqueables, control de acceso por módulo</td>
+            <td class="text-right mono">18h</td>
+            <td class="text-right mono">$720</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Stripe</td>
+            <td>Subscriptions, planes (por módulo + all-in-one), webhooks</td>
+            <td class="text-right mono">14h</td>
+            <td class="text-right mono">$560</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Revit API/MCP</td>
+            <td>Conexión directa con modelos Revit, lectura de datos BIM en tiempo real</td>
+            <td class="text-right mono">22h</td>
+            <td class="text-right mono">$880</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Dashboard avanzado</td>
+            <td>Gráficos interactivos, exportación PDF/Excel, dashboards por rol</td>
+            <td class="text-right mono">12h</td>
+            <td class="text-right mono">$480</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Admin panel DG</td>
+            <td>Panel de control para Gabriel: usuarios activos, ingresos, feedback</td>
+            <td class="text-right mono">12h</td>
+            <td class="text-right mono">$480</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Multi-tenant base</td>
+            <td>Fundación para white-label futuro: organizaciones, aislamiento de datos</td>
+            <td class="text-right mono">16h</td>
+            <td class="text-right mono">$640</td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">QA + Deploy</td>
+            <td>Testing, performance, seguridad, deployment productivo</td>
+            <td class="text-right mono">10h</td>
+            <td class="text-right mono">$400</td>
+          </tr>
+          <tr class="subtotal">
+            <td colspan="2"><strong>SUBTOTAL PHASE 2</strong></td>
+            <td class="text-right mono">104h</td>
+            <td class="text-right mono">$4,160</td>
+          </tr>
+
+          <!-- Aprendizaje -->
+          <tr>
+            <td colspan="4" class="py-2" style="background:#fbbf2412;"><span class="pill pill-amber">Aprendizaje</span></td>
+          </tr>
+          <tr>
+            <td class="text-slate-400 text-xs mono">Revit API + MCP</td>
+            <td>Research, pruebas, docs de Autodesk Forge</td>
+            <td class="text-right mono">16h</td>
+            <td class="text-right mono">$640</td>
+          </tr>
+          <tr class="subtotal">
+            <td colspan="2"><strong>SUBTOTAL APRENDIZAJE</strong></td>
+            <td class="text-right mono">16h</td>
+            <td class="text-right mono">$640</td>
+          </tr>
+
+          <tr class="total-row">
+            <td colspan="2"><strong>TOTAL PROYECTO COMPLETO</strong></td>
+            <td class="text-right mono">194h</td>
+            <td class="text-right mono">$7,760</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-xs text-slate-500">* Infraestructura (Vercel, Supabase, Anthropic API) se cobra aparte a DG como costo operativo. Estimado: USD 150–300/mes según volumen.</p>
+  </div>
+
+  <!-- Dos opciones de pricing -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+    <!-- Opción A -->
+    <div class="price-card-a p-6 space-y-5">
+      <div>
+        <span class="pill pill-violet mb-2 inline-block">Opción A</span>
+        <h2 class="text-xl font-bold text-white">Precio Fijo</h2>
+        <p class="text-sm text-slate-400 mt-1">Desarrollo completo. Olympus cobra todo por adelantado.</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="flex justify-between items-center py-2 border-b border-white/10">
+          <span class="text-sm text-slate-300">Phase 1 — MVP (incl. aprendizaje)</span>
+          <span class="mono font-semibold text-violet-300">USD 3,500</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-white/10">
+          <span class="text-sm text-slate-300">Phase 2 — Full Product</span>
+          <span class="mono font-semibold text-violet-300">USD 4,000</span>
+        </div>
+        <div class="flex justify-between items-center py-2">
+          <span class="font-bold text-white">TOTAL</span>
+          <span class="mono font-bold text-2xl text-violet-400">USD 7,500</span>
+        </div>
+      </div>
+
+      <div class="space-y-2 pt-2">
+        <p class="text-xs text-slate-500 uppercase mono tracking-widest">Forma de pago sugerida</p>
+        <div class="surface-2 p-3 text-sm text-slate-300 space-y-1">
+          <div>🔵 <strong>50%</strong> al firmar contrato (USD 3,750)</div>
+          <div>🔵 <strong>30%</strong> al entregar MVP aprobado (USD 2,250)</div>
+          <div>🔵 <strong>20%</strong> al entregar Phase 2 (USD 1,500)</div>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs text-slate-500 uppercase mono tracking-widest">Lo bueno</p>
+        <ul class="text-sm text-slate-300 space-y-1">
+          <li>✅ Ingreso seguro sin importar si DG vende o no</li>
+          <li>✅ Simple de contratar, sin dependencias futuras</li>
+          <li>✅ Cero riesgo operativo para Olympus</li>
+        </ul>
+      </div>
+      <div class="space-y-2">
+        <p class="text-xs text-slate-500 uppercase mono tracking-widest">Lo malo</p>
+        <ul class="text-sm text-slate-300 space-y-1">
+          <li>🔴 Si el producto genera USD 20k/mes, Olympus no ve nada</li>
+          <li>🔴 Puede frenar a Gabriel si no tiene USD 3,750 para arrancar</li>
+          <li>🔴 No hay incentivo alineado post-entrega</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Opción B -->
+    <div class="price-card-b p-6 space-y-5 relative glow-emerald">
+      <div class="absolute top-4 right-4">
+        <span class="badge-rec">RECOMENDADA</span>
+      </div>
+      <div>
+        <span class="pill pill-emerald mb-2 inline-block">Opción B</span>
+        <h2 class="text-xl font-bold text-white">Fijo Reducido + % Revenue</h2>
+        <p class="text-sm text-slate-400 mt-1">Olympus arriesga menos hoy, gana más si el producto funciona.</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="flex justify-between items-center py-2 border-b border-white/10">
+          <span class="text-sm text-slate-300">Phase 1 — MVP (upfront reducido)</span>
+          <span class="mono font-semibold text-emerald-400">USD 1,500</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-white/10">
+          <span class="text-sm text-slate-300">Phase 2 — Full Product (upfront)</span>
+          <span class="mono font-semibold text-emerald-400">USD 2,000</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-white/10">
+          <span class="text-sm text-slate-300">Revenue share</span>
+          <span class="mono font-semibold text-emerald-400">20% mensual</span>
+        </div>
+        <div class="flex justify-between items-center py-2">
+          <span class="font-bold text-white">Total upfront</span>
+          <span class="mono font-bold text-xl text-emerald-400">USD 3,500</span>
+        </div>
+      </div>
+
+      <!-- Proyección revenue share -->
+      <div class="surface-2 p-4 space-y-3">
+        <p class="text-xs text-slate-500 uppercase mono tracking-widest">Proyección de ingresos (20% mensual)</p>
+        <div class="space-y-2">
+          <div class="flex justify-between text-sm">
+            <span class="text-slate-400">50 clientes × USD 99/mes</span>
+            <span class="text-emerald-400 mono font-semibold">→ USD 990/mes</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-slate-400">100 clientes × USD 99/mes</span>
+            <span class="text-emerald-400 mono font-semibold">→ USD 1,980/mes</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-slate-400">200 clientes × USD 99/mes</span>
+            <span class="text-emerald-400 mono font-semibold">→ USD 3,960/mes</span>
+          </div>
+        </div>
+        <p class="text-xs text-slate-500">Break-even vs Opción A: ~9 meses con 50 clientes · ~4 meses con 100 clientes</p>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs text-slate-500 uppercase mono tracking-widest">Condiciones del % (poner en contrato)</p>
+        <ul class="text-sm text-slate-300 space-y-1">
+          <li>📌 Duración: 24 meses desde launch comercial</li>
+          <li>📌 % sobre ingresos brutos de la plataforma</li>
+          <li>📌 Pago mensual con reporte de Stripe</li>
+          <li>📌 Si cumplidos 24m los % acumulados son &lt; USD 4,000 → DG paga la diferencia al cerrar</li>
+        </ul>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs text-slate-500 uppercase mono tracking-widest">Lo bueno</p>
+        <ul class="text-sm text-slate-300 space-y-1">
+          <li>✅ Reduce la barrera de entrada para Gabriel (USD 1,500 vs 3,750)</li>
+          <li>✅ Incentivos alineados — si DG crece, todos ganan</li>
+          <li>✅ Upside real: 200 clientes → USD 3,960/mes para Olympus</li>
+          <li>✅ Formaliza la alianza más allá del desarrollo puntual</li>
+        </ul>
+      </div>
+      <div class="space-y-2">
+        <p class="text-xs text-slate-500 uppercase mono tracking-widest">Lo malo</p>
+        <ul class="text-sm text-slate-300 space-y-1">
+          <li>🟡 Si DG no llega a vender, Olympus trabajó con descuento</li>
+          <li>🟡 Requiere más confianza y contrato bien armado</li>
+          <li>🟡 Necesitan reporte mensual transparente de ingresos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recomendación -->
+  <div class="rec-box p-6 space-y-4">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-black font-bold text-sm">✓</div>
+      <h2 class="text-lg font-bold text-white">Mi recomendación: Opción B</h2>
+    </div>
+
+    <p class="text-slate-300 leading-relaxed">
+      Gabriel repitió <strong class="text-white">"alianza"</strong> al menos 5 veces en la reunión. Él no está comprando software — está buscando socios que arriesguen junto a él. La Opción B responde exactamente a eso: Olympus tiene skin in the game, y eso cambia la dinámica de todo el proyecto.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <p class="text-xs text-slate-500 uppercase mono tracking-widest mb-2">Por qué Opción B gana aquí</p>
+        <ul class="text-sm text-slate-300 space-y-2">
+          <li><span class="text-emerald-400 font-bold">→</span> Gabriel tiene el activo (conocimiento, 10 años de experiencia, audiencia). Nosotros tenemos la tecnología. La Opción B formaliza esa equidad.</li>
+          <li><span class="text-emerald-400 font-bold">→</span> Si llevan 200 clientes a fin de año (él lo proyecta), el 20% mensual es <strong class="text-white">más de USD 47k al año</strong> para Olympus. Eso no lo consigue la Opción A.</li>
+          <li><span class="text-emerald-400 font-bold">→</span> Pato dijo "exclusividad" — eso vale un descuento real. El upfront reducido es el precio de esa exclusividad a favor de DG.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xs text-slate-500 uppercase mono tracking-widest mb-2">Qué hay que proteger en el contrato</p>
+        <ul class="text-sm text-slate-300 space-y-2">
+          <li><span class="text-amber-400 font-bold">!</span> IP del software: de Olympus. Gabriel aporta el contenido/conocimiento.</li>
+          <li><span class="text-amber-400 font-bold">!</span> Cláusula de salida: si DG quiere comprar el software al 100% después (costo = diferencia no pagada + valor residual).</li>
+          <li><span class="text-amber-400 font-bold">!</span> Definir % sobre ingresos <em>brutos de la plataforma</em>, no neto (evitar disputas de costos).</li>
+          <li><span class="text-amber-400 font-bold">!</span> Exclusividad tiene plazo (proponer 2 años, luego revisar).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Riesgos -->
+  <div class="surface p-6 space-y-4">
+    <h2 class="text-lg font-bold text-white">Riesgos a tener en cuenta</h2>
+    <div class="space-y-3">
+      <div class="risk-card">
+        <p class="text-sm font-semibold text-amber-300">Revit API es paga y requiere Autodesk cuenta developer</p>
+        <p class="text-sm text-slate-400 mt-1">La integración nativa con Revit requiere acceso a Autodesk Platform Services (antes Forge). Costo adicional y curva de aprendizaje. Para el MVP, se puede saltar — el chat IA funciona sin conectarse a Revit.</p>
+      </div>
+      <div class="risk-card">
+        <p class="text-sm font-semibold text-amber-300">El contenido de Gabriel tiene que llegar en buen formato</p>
+        <p class="text-sm text-slate-400 mt-1">Si las transcripciones de los 3 cursos no están limpias o los archivos GPT no se pueden exportar, la calidad del bot cae. Hay que exigirle a Gabriel el material antes de empezar la estimación de knowledge base.</p>
+      </div>
+      <div class="risk-card">
+        <p class="text-sm font-semibold text-amber-300">Derecho intelectual del contenido</p>
+        <p class="text-sm text-slate-400 mt-1">Gabriel mencionó HumanTech como otro socio. Hay que clarificar qué sucede si ellos tienen acceso al mismo contenido. El contrato debe estipular que el contenido de los cursos es de DG, y que Olympus lo usa con licencia exclusiva para esta plataforma.</p>
+      </div>
+      <div class="risk-card">
+        <p class="text-sm font-semibold text-amber-300">Timeline vs complejidad real</p>
+        <p class="text-sm text-slate-400 mt-1">Pato dijo "MVP en una semana". Eso es factible solo si Gabriel entrega el material de inmediato. El MVP real (funcional, con branding, QA básico) va a tomar 2–3 semanas. Hay que alinear expectativas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Próximos pasos -->
+  <div class="surface p-6 space-y-4">
+    <h2 class="text-lg font-bold text-white">Próximos pasos acordados en la reunión</h2>
+    <ol class="space-y-3 text-sm text-slate-300">
+      <li class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+        <div><strong class="text-white">Gabriel envía por WhatsApp:</strong> instrucciones del GPT + archivos cargados + transcripciones 3 cursos + link GPT + conversaciones de ejemplo</div>
+      </li>
+      <li class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+        <div><strong class="text-white">Olympus arma el contrato:</strong> alianza, exclusividad, IP, pricing (usar esta cotización como base). Decidir entre Opción A o B antes de mandárselo.</div>
+      </li>
+      <li class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+        <div><strong class="text-white">Agregar a Dayana al grupo de WhatsApp</strong> (ella organiza del lado de DG)</div>
+      </li>
+      <li class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
+        <div><strong class="text-white">Reunión siguiente:</strong> miércoles 9 julio 2026 a la misma hora — revisión de MVP + materiales recibidos</div>
+      </li>
+      <li class="flex gap-3 items-start">
+        <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">5</span>
+        <div><strong class="text-white">Recolectar 3–5 testimonios</strong> de los usuarios del GPT que Gabriel regaló (para validar producto antes de pitch comercial)</div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- Footer -->
+  <div class="text-center text-xs text-slate-600 mono pt-4 pb-8">
+    Uso interno Olympus · No compartir con DG hasta definir modalidad de contratación
+  </div>
+
+</div>
+</body>
+</html>
